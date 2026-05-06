@@ -1,16 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Navbar } from "@/components/divin/Navbar";
+import { Hero } from "@/components/divin/Hero";
+import { Menu } from "@/components/divin/Menu";
+import { Why } from "@/components/divin/Why";
+import { Reviews } from "@/components/divin/Reviews";
+import { Contact } from "@/components/divin/Contact";
+import { Footer } from "@/components/divin/Footer";
+import { WhatsAppFab } from "@/components/divin/WhatsAppFab";
+import { useReveal } from "@/hooks/useReveal";
+import type { Lang } from "@/i18n/translations";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [lang, setLang] = useState<Lang>("fr");
+  useReveal();
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background text-foreground scroll-smooth">
+      <Navbar lang={lang} setLang={setLang} />
+      <main className="pt-16">
+        <Hero lang={lang} />
+        <Menu lang={lang} />
+        <Why lang={lang} />
+        <Reviews lang={lang} />
+        <Contact lang={lang} />
+      </main>
+      <Footer lang={lang} />
+      <WhatsAppFab lang={lang} />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
