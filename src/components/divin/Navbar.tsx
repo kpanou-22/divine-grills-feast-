@@ -31,8 +31,18 @@ export const Navbar = ({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => vo
             <button onClick={() => setLang("fr")} className={`px-3 py-1 ${lang === "fr" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>FR</button>
             <button onClick={() => setLang("en")} className={`px-3 py-1 ${lang === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>EN</button>
           </div>
-          <a href={WHATSAPP} target="_blank" rel="noopener" className="hidden sm:inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition">
-            <i className="fa-solid fa-utensils" /> {t[lang].nav.order}
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener"
+            className="group hidden sm:inline-flex items-center justify-between gap-3 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-xs font-bold transition-all hover:shadow-[0_0_15px_rgba(204,0,0,0.3)]"
+          >
+            <span className="flex items-center gap-2">
+              <i className="fa-solid fa-utensils" /> {t[lang].nav.order}
+            </span>
+            <span className="h-4 w-4 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+              <div className="h-1 w-1 rounded-full bg-white" />
+            </span>
           </a>
           <button onClick={() => setOpen(!open)} className="lg:hidden text-foreground text-2xl" aria-label="menu">
             <i className={`fa-solid ${open ? "fa-xmark" : "fa-bars"}`} />
@@ -47,9 +57,24 @@ export const Navbar = ({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => vo
                 <a href={l.href} onClick={() => setOpen(false)} className="block py-1">{l.label}</a>
               </li>
             ))}
-            <li className="flex items-center gap-2 pt-2">
-              <button onClick={() => setLang("fr")} className={`px-3 py-1 rounded-full text-sm font-semibold ${lang === "fr" ? "bg-primary text-primary-foreground" : "border border-border"}`}>FR</button>
-              <button onClick={() => setLang("en")} className={`px-3 py-1 rounded-full text-sm font-semibold ${lang === "en" ? "bg-primary text-primary-foreground" : "border border-border"}`}>EN</button>
+            <li className="flex flex-col gap-4 pt-4 border-t border-border/50">
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener"
+                className="group flex items-center justify-between bg-[#25D366] text-white px-6 py-4 rounded-full text-base font-bold shadow-lg"
+              >
+                <span className="flex items-center gap-3">
+                  <i className="fa-brands fa-whatsapp text-2xl" /> {t[lang].nav.order}
+                </span>
+                <span className="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center">
+                  <div className="h-1.5 w-1.5 rounded-full bg-white" />
+                </span>
+              </a>
+              <div className="flex items-center gap-2">
+                <button onClick={() => { setLang("fr"); setOpen(false); }} className={`flex-1 px-4 py-2 rounded-full text-sm font-semibold transition ${lang === "fr" ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"}`}>Français</button>
+                <button onClick={() => { setLang("en"); setOpen(false); }} className={`flex-1 px-4 py-2 rounded-full text-sm font-semibold transition ${lang === "en" ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"}`}>English</button>
+              </div>
             </li>
           </ul>
         </div>

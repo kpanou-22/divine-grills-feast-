@@ -38,8 +38,18 @@ export const Contact = ({ lang }: { lang: Lang }) => {
               ))}
             </div>
 
-            <a href={WHATSAPP} target="_blank" rel="noopener" className="flex items-center justify-center gap-3 bg-whatsapp text-white px-6 py-5 rounded-2xl text-lg font-semibold hover:opacity-90 transition shadow-ember">
-              <i className="fa-brands fa-whatsapp text-2xl" /> {T.whatsappBtn}
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener"
+              className="group relative flex items-center justify-between bg-[#25D366] text-white px-6 sm:px-8 py-4 sm:py-5 rounded-full text-base sm:text-lg font-bold transition-all hover:shadow-[0_0_25px_rgba(37,211,102,0.4)] hover:scale-[1.01]"
+            >
+              <span className="flex items-center gap-3 sm:gap-4">
+                <i className="fa-brands fa-whatsapp text-2xl sm:text-3xl" /> {T.whatsappBtn}
+              </span>
+              <span className="h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-white" />
+              </span>
             </a>
 
             <div className="rounded-2xl border border-border bg-card p-6">
@@ -63,8 +73,18 @@ export const Contact = ({ lang }: { lang: Lang }) => {
                 loading="lazy"
               />
             </div>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Carrefour+Acconville+Abomey-Calavi" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 border border-primary text-primary px-6 py-3 rounded-full font-semibold hover:bg-primary hover:text-primary-foreground transition">
-              <i className="fa-solid fa-location-arrow" /> {T.directions}
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Carrefour+Acconville+Abomey-Calavi"
+              target="_blank"
+              rel="noopener"
+              className="group relative inline-flex items-center justify-between gap-4 border border-primary text-primary px-7 py-4 rounded-full font-bold transition-all hover:bg-primary hover:text-white"
+            >
+              <span className="flex items-center gap-2">
+                <i className="fa-solid fa-location-arrow" /> {T.directions}
+              </span>
+              <span className="h-5 w-5 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary group-hover:bg-white transition-colors" />
+              </span>
             </a>
           </div>
         </div>

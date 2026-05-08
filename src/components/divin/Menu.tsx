@@ -41,29 +41,36 @@ export const Menu = ({ lang }: { lang: Lang }) => {
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((item, i) => (
-            <article key={i} className="reveal group rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/60 transition">
-              <div className="relative aspect-[4/3] overflow-hidden">
+            <article key={i} className="reveal group rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/60 transition flex flex-col h-full">
+              <div className="relative aspect-[4/3] overflow-hidden shrink-0">
                 <img src={item.img} alt={item.name[lang]} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full">
                   {item.price}
                 </div>
               </div>
-              <div className="p-5">
+              <div className="p-5 flex flex-col flex-1">
                 <h3 className="font-display text-lg tracking-wide text-foreground">{item.name[lang]}</h3>
-                <p className="mt-2 text-sm italic text-muted-foreground">{item.desc[lang]}</p>
-                <a href={WHATSAPP} target="_blank" rel="noopener" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
-                  <i className="fa-brands fa-whatsapp" /> {T.order}
-                </a>
+                <p className="mt-2 text-sm italic text-muted-foreground line-clamp-2">{item.desc[lang]}</p>
+                <div className="mt-auto pt-6">
+                  <a
+                    href={WHATSAPP}
+                    target="_blank"
+                    rel="noopener"
+                    className="group inline-flex items-center justify-between w-full bg-[#25D366] text-white px-5 py-3 rounded-full text-sm font-bold transition-all hover:shadow-[0_0_15px_rgba(37,211,102,0.3)] hover:scale-[1.02]"
+                  >
+                    <span className="flex items-center gap-2">
+                      <i className="fa-brands fa-whatsapp text-base" /> {T.order}
+                    </span>
+                    <span className="h-4 w-4 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                      <div className="h-1 w-1 rounded-full bg-white" />
+                    </span>
+                  </a>
+                </div>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-12 flex justify-center reveal">
-          <a href={WHATSAPP} target="_blank" rel="noopener" className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg shadow-ember hover:opacity-90 transition">
-            <i className="fa-brands fa-whatsapp text-2xl" /> {T.cta}
-          </a>
-        </div>
       </div>
     </section>
   );
