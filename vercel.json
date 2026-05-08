@@ -1,7 +1,6 @@
 {
-  "rewrite": [
+  "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "cleanUrls": true,
-  "framework": "vite"
+  "cleanUrls": true
 }
